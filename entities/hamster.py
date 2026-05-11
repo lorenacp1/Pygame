@@ -14,6 +14,8 @@ class Hamster:
 
         self.gravity = 0.5
 
+        self.dragging = False
+
     def update(self):
 
         self.vel_y += self.gravity

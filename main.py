@@ -1,4 +1,5 @@
 import pygame
+from entities.hamster import Hamster
 
 pygame.init()
 
@@ -9,6 +10,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
 
 clock = pygame.time.Clock()
+hamster = Hamster(200, 100)
 
 running = True
 
@@ -20,6 +22,8 @@ while running:
 
     screen.fill((240, 240, 240))
 
+    hamster.update()
+    hamster.draw(screen)
     pygame.display.update()
     clock.tick(60)
 

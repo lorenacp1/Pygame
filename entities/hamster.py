@@ -21,6 +21,14 @@ class Hamster:
         self.y += self.vel_y
         self.x += self.vel_x
 
+        ground_y = 600
+
+        if self.y + self.radius > ground_y:
+
+            self.y = ground_y - self.radius
+
+            self.vel_y = 0
+
     def draw(self, screen):
 
         pygame.draw.circle(

@@ -22,6 +22,11 @@ while running:
 
     screen.fill((240, 240, 240))
 
+    ground = pygame.Rect(0, 600, WIDTH, 100)
+
+    pygame.draw.rect(screen, (100, 200, 100), ground)
+    
+    
     hamster.update()
     hamster.draw(screen)
     pygame.display.update()

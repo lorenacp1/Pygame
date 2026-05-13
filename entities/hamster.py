@@ -2,6 +2,8 @@ import pygame
 
 class Hamster:
     def __init__(self, x, y):
+        self.start_pos = (x,y)
+        
         self.image = pygame.Surface((50, 50), pygame.SRCALPHA)
         pygame.draw.circle(self.image, (180, 120, 80), (25, 25), 25)
 
@@ -36,3 +38,10 @@ class Hamster:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+
+    def reset(self): 
+        self.rect.topleft = self.start_pos
+        self.vel_x = 0
+        self.vel_y = 0
+        self.dragging = False
+        self.launched = False

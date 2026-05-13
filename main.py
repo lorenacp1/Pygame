@@ -95,7 +95,7 @@ while running:
             pygame.draw.rect(screen, (200, 150, 50), box)
         
         if hamster.dragging: 
-            pygame.draw.line(screen, (0, 0, 0), SLING_POS, hamster.rect.center, 3)
+            pygame.draw.line(screen, (0, 0, 0), SLING_POS, hamster.rect.center,)
 
     hamster.draw(screen)
     

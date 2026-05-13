@@ -20,20 +20,32 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     
-    keys = pygame.key.get_pressed()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if hamster.rect.collidepoint(event.pos):
+                hamster.dragging = True
+    
+        if event.type == pygame.MOUSEBUTTONUP:
+            if hamster.dragging:
+                hamster.dragging = False
+                hamster.launched = True
 
-    hamster.vel_x = 0
-    if keys[pygame.K_LEFT]:
-        hamster.vel_x = -3
-    if keys[pygame.K_RIGHT]:
-        hamster.vel_x = 3
+                mouse_x, mouse_y = pygame.mouse.get_pos()
+
+                hamster.vel_x = (hamster.rect.centerx - mouse_x)*0.2
+                hamster.vel_y = (hamster.rect.centery - mouse_y)*0.2
+
+    if hamster.dragging:
+        hamster.rect.center = pygame.mouse.get_pos()
+    
+
+    keys = pygame.key.get_pressed()
+    
 
     screen.fill((240, 240, 240))
 
     ground = pygame.Rect(0, 600, WIDTH, 100)
 
     pygame.draw.rect(screen, (100, 200, 100), ground)
-    
     
     hamster.update()
     hamster.draw(screen)

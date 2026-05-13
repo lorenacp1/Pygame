@@ -19,6 +19,14 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+    
+    keys = pygame.key.get_pressed()
+
+    hamster.vel_x = 0
+    if keys[pygame.K_LEFT]:
+        hamster.vel_x = -3
+    if keys[pygame.K_RIGHT]:
+        hamster.vel_x = 3
 
     screen.fill((240, 240, 240))
 

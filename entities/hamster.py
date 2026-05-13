@@ -25,8 +25,8 @@ class Hamster:
 
             if self.rect.bottom >= 600:
                 self.rect.bottom = 600
-                self.vel_y = self.vel_y * 0.4
-                self.vel_x = self.vel_x *0.8
+                self.vel_y = self.vel_y * -0.4
+                self.vel_x = self.vel_x * 0.8
 
                 if abs(self.vel_y) < 1:
                     self.vel_y = 0

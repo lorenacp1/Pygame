@@ -10,45 +10,56 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
 
 clock = pygame.time.Clock()
-hamster = Hamster(200, 100)
 
 ground_y = 600
+INTRO_SPAWN = (WIDTH // 2, -30)
+SLING_POS = (180, 520)
 
-gondola = pygame.Rect(850, 520, 200, 80)
+def create_boxes():
+    return [
+        pygame.Rect(880, 460, 40, 40),
+        pygame.Rect(930, 460, 40, 40),
+        pygame.Rect(980, 460, 40, 40), 
+        pygame.Rect(905, 420, 40, 40),
+        pygame.Rect(955, 420, 40, 40),
+    ]
 
-boxes = [
-    pygame.Rect(880, 480, 40, 40), 
-    pygame.Rect(930, 480, 40, 40),
-    pygame.Rect(905, 440, 40, 40),
-]
+hamster = Hamster(*INTRO_SPAWN)
+boxes= create_boxes()
+gondola = pygame.Rect(830, 400, 290, 180)
 
+scene = "intro"
 running = True
 
 while running:
-    sling_x, sling_y = hamster.rest_pos[0] + 25, hamster.rest_pos[1] + 25
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        
+        if scene == "game":
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if hamster.ready and hamster.rect.collidepoint(event.pos):
+                    hamster.dragging = True
     
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if hamster.rect.collidepoint(event.pos):
-                hamster.dragging = True
-    
-        if event.type == pygame.MOUSEBUTTONUP:
-            if hamster.dragging:
-                hamster.dragging = False
-                hamster.launched = True
-                hamster.ready = False
+            if event.type == pygame.MOUSEBUTTONUP:
+                if hamster.dragging:
+                    hamster.dragging = False
+                    hamster.launched = True
+                    hamster.ready = False
 
-                mouse_x, mouse_y = event.pos
+                    anchor_x, anchor_y = SLING_POS
+                    pull_x = anchor_x - hamster.rect.centerx
+                    pull_y = anchor_y - hamster.rect.centery
 
-                hamster.vel_x = (hamster.rect.centerx - mouse_x)*0.2
-                hamster.vel_y = (hamster.rect.centery - mouse_y)*0.2
+                    power = 0.42
+                    hamster.vel_x = pull_x * power
+                    hamster.vel_y = pull_y * power
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_r:
-                hamster.reset()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    boxes = create_boxes()
+                    scene = "intro"    
 
     if hamster.dragging:
         mouse_x, mouse_y = pygame.mouse.get_pos()

@@ -72,7 +72,7 @@ while running:
             anchor_x, anchor_y = SLING_POS
             max_pull = 140
 
-            dx = max_(-max_pull, min(max_pull, mouse_x - anchor_x))
+            dx = max(-max_pull, min(max_pull, mouse_x - anchor_x))
             dy = max(-max_pull, min(max_pull, mouse_y - anchor_y))
 
             hamster.rect.center = (anchor_x + dx, anchor_y + dy)
@@ -84,7 +84,7 @@ while running:
                 boxes.remove(box)
 
     if scene == "intro":
-        scene.fill((220, 230, 245))
+        screen.fill((220, 230, 245))
         pygame.draw.rect(screen, (120, 120, 120), (0, GROUND_Y, WIDTH, 100))
     else: 
         screen.fill((240, 240, 240))

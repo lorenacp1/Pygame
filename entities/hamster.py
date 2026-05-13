@@ -40,7 +40,8 @@ class Hamster:
         self.rect.y += int(self.vel_y)
 
         if self.rect.bottom >= ground_y:
-            self.rect.bottom = ground_yself.vel_y = 0
+            self.rect.bottom = ground_y
+            self.vel_y = 0
             self.intro_falling = False
             return True
 
@@ -51,8 +52,8 @@ class Hamster:
             return 
         
         if self.launched: 
-            self.vel_x += int(self.vel_x)
-            self.vel_y += int(self.vel_y)
+            self.vel_y += self.gravity 
+            self.rect.x += int(self.vel_x)
             self.rect.y += int(self.vel_y)
 
             if self.rect.bottom >= ground_y:
@@ -61,6 +62,6 @@ class Hamster:
                 self.vel_y = 0
                 self.launched = False
                 self.ready = True
-                
+
     def draw(self, screen):
         screen.blit(self.image, self.rect)

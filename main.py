@@ -25,6 +25,7 @@ boxes = [
 running = True
 
 while running:
+    sling_x, sling_y = hamster.rest_pos[0] + 25, hamster.rest_pos[1] + 25
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -38,6 +39,7 @@ while running:
             if hamster.dragging:
                 hamster.dragging = False
                 hamster.launched = True
+                hamster.ready = False
 
                 mouse_x, mouse_y = event.pos
 
@@ -50,11 +52,7 @@ while running:
 
     if hamster.dragging:
         mouse_x, mouse_y = pygame.mouse.get_pos()
-        sling_x, sling_y = hamster.start_pos
         max_pull = 100
-
-        dx = mouse_x - sling_x
-        dy = mouse_y - sling_y 
 
         dx = max_(-max_pull, min(max_pull, dx))
         dy = max(-max_pull, min(max_pull, dy))
@@ -66,6 +64,7 @@ while running:
     for box in boxes[:]:
         if hamster.rect.colliderect(box):
             boxes.remove(box)
+
 
     screen.fill((240, 240, 240))
 

@@ -29,7 +29,7 @@ class Hamster:
 
             self.y = ground_y - self.radius
 
-            self.vel_y = 0
+            self.vel_y = self.vel_y*-0.4
 
     def draw(self, screen):
 

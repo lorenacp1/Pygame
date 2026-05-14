@@ -7,7 +7,7 @@ WIDTH = 1200
 HEIGHT = 700
 
 menu_img = pygame.image.load("menu.png")
-menu_img = pygame.transform.scale(menu_img, (WIDTH, HEIGHT))
+menu_img = pygame.transform.smoothscale(menu_img, (WIDTH, HEIGHT))
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
@@ -30,7 +30,7 @@ def create_boxes():
 hamster = Hamster(*INTRO_SPAWN)
 boxes= create_boxes()
 gondola = pygame.Rect(830, 400, 290, 180)
-play_button = pygame.Rect(480, 420, 240, 70)
+play_button = pygame.Rect(470, 420, 280, 75)
 
 scene = "menu"
 running = True

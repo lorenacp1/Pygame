@@ -41,6 +41,7 @@ level4 = pygame.Rect(720, 170, 220, 340)
 level5 = pygame.Rect(950, 170, 220, 340)
 
 selected_level = 1
+score = 0
 
 scene = "menu"
 running = True

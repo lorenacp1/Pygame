@@ -72,9 +72,6 @@ while running:
     if scene == "menu":
         screen.blit(menu_img, (0, 0))
 
-        #borda do botão apenas para enxergar aonde clicar
-        pygame.draw.rect(screen, (255, 0, 0), play_button, 3)
-
     elif scene == "intro":
         screen.fill((220, 230, 245))
         pygame.draw.rect(screen, (120, 120, 120), (0, GROUND_Y, WIDTH, 100))

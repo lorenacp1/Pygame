@@ -9,6 +9,9 @@ HEIGHT = 700
 menu_img = pygame.image.load("menu.png")
 menu_img = pygame.transform.smoothscale(menu_img, (WIDTH, HEIGHT))
 
+level_select_img = pygame.image.load("levels.png")
+level_select_img = pygame.transform.smoothscale(level_select_img, (WIDTH, HEIGHT))
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
 
@@ -31,16 +34,50 @@ hamster = Hamster(*INTRO_SPAWN)
 boxes= create_boxes()
 gondola = pygame.Rect(830, 400, 290, 180)
 play_button = pygame.Rect(420, 422, 360, 75)
+level1 = pygame.Rect(22, 200, 250, 300)
+level2 = pygame.Rect(270, 200, 250, 300)
+level3 = pygame.Rect(520, 200, 250, 300)
+level4 = pygame.Rect(770, 200, 250, 300)
+level5 = pygame.Rect(1020, 200, 250, 300)
+
+selected_level = 1
 
 scene = "menu"
 running = True
 
 while running:
     for event in pygame.event.get():
+        if scene == "level_select":
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if level1.collidepoint(event.pos):
+                    selected_level = 1
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
+
+                elif level2.collidepoint(event.pos):
+                    selected_level = 2
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
+
+                elif level3.collidepoint(event.pos):
+                    selected_level = 3
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
+                
+                elif level4.collidepoint(event.pos):
+                    selected_level = 4
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
+                
+                elif level5.collidepoint(event.pos):
+                    selected_level = 5
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
+
         if scene == "menu":
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.collidepoint(event.pos):
-                    scene = "intro"
+                    scene = "level_select"
 
         if event.type == pygame.QUIT:
             running = False
@@ -69,8 +106,17 @@ while running:
                     hamster.reset_to_intro(*INTRO_SPAWN)
                     boxes = create_boxes()
                     scene = "intro"
+
     if scene == "menu":
         screen.blit(menu_img, (0, 0))
+    
+    elif scene == "level_select":
+        screen.blit(level_select_img, (0, 0))
+        pygame.draw.rect(screen, (255, 0, 0), level1, 3)
+        pygame.draw.rect(screen, (255, 0, 0), level2, 3)
+        pygame.draw.rect(screen, (255, 0, 0), level3, 3)
+        pygame.draw.rect(screen, (255, 0, 0), level4, 3)
+        pygame.draw.rect(screen, (255, 0, 0), level5, 3)
 
     elif scene == "intro":
         screen.fill((220, 230, 245))

@@ -152,6 +152,18 @@ while running:
         for box in boxes:
             pygame.draw.rect(screen, (200, 150, 50), box)
         
+        if len(boxes) == 0:
+
+            font = pygame.font.SysFont(None, 80)
+
+            victory_text = font.render(
+                "NÍVEL COMPLETO!",
+                True,
+                (0, 180, 0)
+            )
+
+            screen.blit(victory_text, (350, 250))
+        
         if hamster.dragging: 
             pygame.draw.line(screen, (0, 0, 0), SLING_POS, hamster.rect.center,)
 

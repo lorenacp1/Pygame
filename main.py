@@ -30,6 +30,7 @@ def create_boxes():
 hamster = Hamster(*INTRO_SPAWN)
 boxes= create_boxes()
 gondola = pygame.Rect(830, 400, 290, 180)
+play_button = pygame.Rect(450, 400, 300, 100)
 
 scene = "menu"
 running = True
@@ -38,7 +39,8 @@ while running:
     for event in pygame.event.get():
         if scene == "menu":
             if event.type == pygame.MOUSEBUTTONDOWN:
-                scene = "intro"
+                if play_button.collidepoint(event.pos):
+                    scene = "intro"
 
         if event.type == pygame.QUIT:
             running = False
@@ -69,6 +71,9 @@ while running:
                     scene = "intro"
     if scene == "menu":
         screen.blit(menu_img, (0, 0))
+
+        #borda do botão apenas para enxergar aonde clicar
+        pygame.draw.rect(screen, (255, 0, 0), play_button, 3)
 
     elif scene == "intro":
         screen.fill((220, 230, 245))

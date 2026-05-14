@@ -145,6 +145,7 @@ while running:
         for box in boxes[:]:
             if hamster.rect.colliderect(box):
                 boxes.remove(box)
+                score += 100
 
         screen.fill((240, 240, 240))
         pygame.draw.rect(screen, (100, 200, 100), (0, GROUND_Y, WIDTH, 100))

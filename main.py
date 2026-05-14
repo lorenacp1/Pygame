@@ -30,7 +30,7 @@ def create_boxes():
 hamster = Hamster(*INTRO_SPAWN)
 boxes= create_boxes()
 gondola = pygame.Rect(830, 400, 290, 180)
-play_button = pygame.Rect(420, 410, 360, 75)
+play_button = pygame.Rect(420, 420, 360, 75)
 
 scene = "menu"
 running = True

@@ -34,11 +34,11 @@ hamster = Hamster(*INTRO_SPAWN)
 boxes= create_boxes()
 gondola = pygame.Rect(830, 400, 290, 180)
 play_button = pygame.Rect(420, 422, 360, 75)
-level1 = pygame.Rect(22, 200, 250, 300)
-level2 = pygame.Rect(270, 200, 250, 300)
-level3 = pygame.Rect(520, 200, 250, 300)
-level4 = pygame.Rect(770, 200, 250, 300)
-level5 = pygame.Rect(1020, 200, 250, 300)
+level1 = pygame.Rect(40, 200, 220, 300)
+level2 = pygame.Rect(270, 200, 220, 300)
+level3 = pygame.Rect(500, 200, 220, 300)
+level4 = pygame.Rect(730, 200, 220, 300)
+level5 = pygame.Rect(960, 200, 220, 300)
 
 selected_level = 1
 

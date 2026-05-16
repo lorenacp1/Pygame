@@ -100,7 +100,7 @@ while running:
         if scene == "menu":
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.collidepoint(event.pos):
-                    scene = "level_select"
+                    scene = "select_hamster"
         
         if scene == "select_hamster":
             font = pygame.font.SysFont(None, 60)

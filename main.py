@@ -133,6 +133,19 @@ while running:
 
     if scene == "menu":
         screen.blit(menu_img, (0, 0))
+        
+    elif scene == 'select_hamster':
+        screen.fill((240, 220, 170))
+        pygame.draw.rect(screen, (255,255,255), normal_button)
+
+        pygame.draw.rect(screen, (255,255,255), heavy_button)
+
+        pygame.draw.rect(screen, (255,255,255), wheel_button)
+        screen.blit(normal_preview, (200, 270))
+
+        screen.blit(heavy_preview, (520, 270))
+
+        screen.blit(wheel_preview, (840, 270))
     
     elif scene == "level_select":
         screen.blit(level_select_img, (0, 0))

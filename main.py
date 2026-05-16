@@ -134,7 +134,7 @@ while running:
             print('ARRASTANDO')
             mouse_x, mouse_y = pygame.mouse.get_pos()
             anchor_x, anchor_y = SLING_POS
-            max_pull = 400
+            max_pull = 120
 
             dx = max(-max_pull, min(max_pull, mouse_x - anchor_x))
             dy = max(-max_pull, min(max_pull, mouse_y - anchor_y))

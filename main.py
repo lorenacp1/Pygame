@@ -40,6 +40,9 @@ level2 = pygame.Rect(260, 170, 220, 340)
 level3 = pygame.Rect(490, 170, 220, 340)
 level4 = pygame.Rect(720, 170, 220, 340)
 level5 = pygame.Rect(950, 170, 220, 340)
+normal_button = pygame.Rect(180, 250, 220, 220)
+heavy_button = pygame.Rect(500, 250, 220, 220)
+wheel_button = pygame.Rect(820, 250, 220, 220)
 
 selected_level = 1
 score = 0

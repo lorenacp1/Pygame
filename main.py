@@ -89,12 +89,12 @@ while running:
                 elif heavy_button.collidepoint(event.pos):
                     selected_hamster = 'heavy'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='heavy')
-                    scene = 'game'
+                    scene = 'level_select'
                 
                 elif wheel_button.collidepoint(event.pos):
                     selected_hamster = 'wheel'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='wheel')
-                    scene = 'game'
+                    scene = 'level_select'
                     
 
         if scene == "menu":

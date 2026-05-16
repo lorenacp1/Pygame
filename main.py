@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
 
 GROUND_Y = 600
 INTRO_SPAWN = (WIDTH // 2, 100)
-SLING_POS = (300, 500)
+SLING_POS = (250, 500)
 
 def create_boxes():
     return [

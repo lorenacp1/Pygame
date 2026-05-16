@@ -47,12 +47,9 @@ level2 = pygame.Rect(260, 170, 220, 340)
 level3 = pygame.Rect(490, 170, 220, 340)
 level4 = pygame.Rect(720, 170, 220, 340)
 level5 = pygame.Rect(950, 170, 220, 340)
-normal_button = pygame.Rect(180, 250, 220, 220)
-heavy_button = pygame.Rect(500, 250, 220, 220)
-wheel_button = pygame.Rect(820, 250, 220, 220)
-normal_choose = pygame.Rect(170, 610, 240, 70)
-heavy_choose = pygame.Rect(480, 610, 240, 70)
-wheel_choose = pygame.Rect(790, 610, 240, 70)
+normal_choose = pygame.Rect(285, 548, 180, 60)
+heavy_choose = pygame.Rect(510, 548, 180, 60)
+wheel_choose = pygame.Rect(750, 548, 180, 60)
 
 selected_level = 1
 score = 0
@@ -147,19 +144,11 @@ while running:
         
     elif scene == 'select_hamster':
         screen.blit(select_hamster_img, (0, 0))
-        pygame.draw.rect(screen, (255, 0, 0), normal_choose, 3)
-
-        pygame.draw.rect(screen, (0, 255, 0), heavy_choose, 3)
-
-        pygame.draw.rect(screen, (0, 0, 255), wheel_choose, 3)
+        
             
     elif scene == "level_select":
         screen.blit(level_select_img, (0, 0))
-        pygame.draw.rect(screen, (255, 0, 0), level1, 3)
-        pygame.draw.rect(screen, (255, 0, 0), level2, 3)
-        pygame.draw.rect(screen, (255, 0, 0), level3, 3)
-        pygame.draw.rect(screen, (255, 0, 0), level4, 3)
-        pygame.draw.rect(screen, (255, 0, 0), level5, 3)
+        
 
     elif scene == "intro":
         screen.fill((220, 230, 245))

@@ -13,8 +13,11 @@ select_hamster_img = pygame.image.load("select_hamster.png")
 select_hamster_img = pygame.transform.smoothscale(select_hamster_img,(WIDTH, HEIGHT))
 
 
+
+
 level_select_img = pygame.image.load("levels.png")
 level_select_img = pygame.transform.smoothscale(level_select_img, (WIDTH, HEIGHT))
+
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
@@ -47,6 +50,9 @@ level5 = pygame.Rect(950, 170, 220, 340)
 normal_button = pygame.Rect(180, 250, 220, 220)
 heavy_button = pygame.Rect(500, 250, 220, 220)
 wheel_button = pygame.Rect(820, 250, 220, 220)
+normal_choose = pygame.Rect(170, 610, 240, 70)
+heavy_choose = pygame.Rect(480, 610, 240, 70)
+wheel_choose = pygame.Rect(790, 610, 240, 70)
 
 selected_level = 1
 score = 0
@@ -85,17 +91,17 @@ while running:
                     scene = "intro"
         if scene == "select_hamster":
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if normal_button.collidepoint(event.pos):
+                if normal_choose.collidepoint(event.pos):
                     selected_hamster = 'normal'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='normal')
                     scene = "level_select"
                 
-                elif heavy_button.collidepoint(event.pos):
+                elif heavy_choose.collidepoint(event.pos):
                     selected_hamster = 'heavy'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='heavy')
                     scene = 'level_select'
                 
-                elif wheel_button.collidepoint(event.pos):
+                elif wheel_choose.collidepoint(event.pos):
                     selected_hamster = 'wheel'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='wheel')
                     scene = 'level_select'
@@ -141,7 +147,12 @@ while running:
         
     elif scene == 'select_hamster':
         screen.blit(select_hamster_img, (0, 0))
-    
+        pygame.draw.rect(screen, (255, 0, 0), normal_choose, 3)
+
+        pygame.draw.rect(screen, (0, 255, 0), heavy_choose, 3)
+
+        pygame.draw.rect(screen, (0, 0, 255), wheel_choose, 3)
+            
     elif scene == "level_select":
         screen.blit(level_select_img, (0, 0))
         pygame.draw.rect(screen, (255, 0, 0), level1, 3)

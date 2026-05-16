@@ -171,6 +171,20 @@ while running:
 
         hamster.draw(screen)
     
+    font = pygame.font.SysFont(None, 40)
+
+    score_text = font.render(
+    f"Score: {score}",
+    True,
+    (0, 0, 0)
+)
+
+    screen.blit(score_text, (20, 20))
+    
+    
+    
+    
+    
     pygame.display.update()
     clock.tick(60)
 

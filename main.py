@@ -101,6 +101,21 @@ while running:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.collidepoint(event.pos):
                     scene = "level_select"
+        
+        if scene == "select_hamster":
+            font = pygame.font.SysFont(None, 60)
+            title = font.render("ESCOLHA SEU HAMSTER",True,(60, 40, 20))
+            screen.blit(title, (320, 100))
+            
+            small_font = pygame.font.SysFont(None, 40)
+
+            normal_text = small_font.render("NORMAL", True, (0,0,0))
+            heavy_text = small_font.render("HEAVY", True, (0,0,0))
+            wheel_text = small_font.render("WHEEL", True, (0,0,0))
+
+            screen.blit(normal_text, (240, 500))
+            screen.blit(heavy_text, (570, 500))
+            screen.blit(wheel_text, (890, 500))
 
         if event.type == pygame.QUIT:
             running = False
@@ -159,7 +174,7 @@ while running:
         pygame.draw.rect(screen, (120, 120, 120), (0, GROUND_Y, WIDTH, 100))
         intro_done = hamster.update_intro(GROUND_Y)
         if intro_done:
-            scene = "select_hamster"
+            scene = "game"
             hamster.prepare_for_game(*SLING_POS)
 
         hamster.draw(screen)

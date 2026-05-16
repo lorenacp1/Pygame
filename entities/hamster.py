@@ -17,7 +17,8 @@ class Hamster:
 
         self.image = pygame.transform.smoothscale(self.image, (200, 200))
 
-        self.rect = self.image.get_rect(center=(x, y))
+        self.rect = pygame.Rect(0, 0, 80, 80)
+        self.rect.center = (x, y)
 
         self.vel_x = 0
         self.vel_y = 0
@@ -75,4 +76,5 @@ class Hamster:
                 self.ready = True
 
     def draw(self, screen):
-        screen.blit(self.image, self.rect)
+        img_rect = self.image.get_rect(center=self.rect.center)
+        screen.blit(self.image, img_rect)

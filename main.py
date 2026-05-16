@@ -80,6 +80,23 @@ while running:
                     selected_level = 5
                     hamster.reset_to_intro(*INTRO_SPAWN)
                     scene = "intro"
+        if scene == "select_hamster":
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if normal_button.collidepoint(event.pos):
+                    selected_hamster = 'normal'
+                    hamster = Hamster(*INTRO_SPAWN,hamster_type='normal')
+                    scene = 'game'
+                
+                elif heavy_button.collidepoint(event.pos):
+                    selected_hamster = 'heavy'
+                    hamster = Hamster(*INTRO_SPAWN,hamster_type='heavy')
+                    scene = 'game'
+                
+                elif wheel_button.collidepoint(event.pos):
+                    selected_hamster = 'wheel'
+                    hamster = Hamster(*INTRO_SPAWN,hamster_type='wheel')
+                    scene = 'game'
+                    
 
         if scene == "menu":
             if event.type == pygame.MOUSEBUTTONDOWN:

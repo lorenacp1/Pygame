@@ -45,6 +45,7 @@ selected_level = 1
 score = 0
 
 scene = "menu"
+scene = "select_hamster"
 selected_hamster = "normal"
 running = True
 

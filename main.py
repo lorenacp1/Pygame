@@ -85,8 +85,7 @@ while running:
         
         if scene == "game":
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if hamster.ready:
-                    print('CLICOU')
+                if hamster.ready and hamster.rect.collidepoint(event.pos):
                     hamster.dragging = True
     
             if event.type == pygame.MOUSEBUTTONUP:
@@ -132,9 +131,10 @@ while running:
 
     elif scene == "game":
         if hamster.dragging:
+            print('ARRASTANDO')
             mouse_x, mouse_y = pygame.mouse.get_pos()
             anchor_x, anchor_y = SLING_POS
-            max_pull = 140
+            max_pull = 400
 
             dx = max(-max_pull, min(max_pull, mouse_x - anchor_x))
             dy = max(-max_pull, min(max_pull, mouse_y - anchor_y))

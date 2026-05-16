@@ -102,32 +102,7 @@ while running:
                 if play_button.collidepoint(event.pos):
                     scene = "select_hamster"
         
-        if scene == "select_hamster":
-            font = pygame.font.SysFont(None, 60)
-            title = font.render("ESCOLHA SEU HAMSTER",True,(60, 40, 20))
-            screen.blit(title, (320, 100))
-            
-            small_font = pygame.font.SysFont(None, 40)
-
-            normal_text = small_font.render("NORMAL", True, (0,0,0))
-            heavy_text = small_font.render("HEAVY", True, (0,0,0))
-            wheel_text = small_font.render("WHEEL", True, (0,0,0))
-
-            screen.blit(normal_text, (240, 500))
-            screen.blit(heavy_text, (570, 500))
-            screen.blit(wheel_text, (890, 500))
-            
-            pygame.draw.rect(screen, (255,255,255), normal_button)
-
-            pygame.draw.rect(screen, (255,255,255), heavy_button)
-
-            pygame.draw.rect(screen, (255,255,255), wheel_button)
-
-            screen.blit(normal_preview, (200, 270))
-
-            screen.blit(heavy_preview, (520, 270))
-
-            screen.blit(wheel_preview, (840, 270))
+        
 
         if event.type == pygame.QUIT:
             running = False
@@ -161,17 +136,7 @@ while running:
         screen.blit(menu_img, (0, 0))
         
     elif scene == 'select_hamster':
-        screen.fill((240, 220, 170))
-        pygame.draw.rect(screen, (255,255,255), normal_button)
-
-        pygame.draw.rect(screen, (255,255,255), heavy_button)
-
-        pygame.draw.rect(screen, (255,255,255), wheel_button)
-        screen.blit(normal_preview, (200, 270))
-
-        screen.blit(heavy_preview, (520, 270))
-
-        screen.blit(wheel_preview, (840, 270))
+        screen.blit(select_hamster_img, (0, 0))
     
     elif scene == "level_select":
         screen.blit(level_select_img, (0, 0))

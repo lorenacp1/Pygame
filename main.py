@@ -16,6 +16,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Hamster Heist")
 
 clock = pygame.time.Clock()
+victory_timer = 0
 
 GROUND_Y = 600
 INTRO_SPAWN = (WIDTH // 2, 100)
@@ -147,9 +148,16 @@ while running:
         
         if hamster.launched:
             if hamster.rect.x > WIDTH + 200 or hamster.rect.x < -200 or hamster.rect.y > HEIGHT + 200:
-                hamster.reset_to_intro(*INTRO_SPAWN)
-                boxes = create_boxes()
-                scene = "intro"
+                if len(boxes) == 0:
+                    victory_timer += 1
+                    if victory_timer > 180:  
+                        victory_timer = 0
+                        hamster.reset_to_intro(*INTRO_SPAWN)
+                        boxes = create_boxes()
+                        scene = "intro"
+                else:
+                    hamster.reset_to_intro(*INTRO_SPAWN)
+                    scene = "intro"
 
         for box in boxes[:]:
             if hamster.rect.colliderect(box):

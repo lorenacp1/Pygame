@@ -45,6 +45,7 @@ selected_level = 1
 score = 0
 
 scene = "menu"
+selected_hamster = "normal"
 running = True
 
 while running:
@@ -132,7 +133,7 @@ while running:
 
     elif scene == "game":
         if hamster.dragging:
-            print('ARRASTANDO')
+            
             mouse_x, mouse_y = pygame.mouse.get_pos()
             anchor_x, anchor_y = SLING_POS
             max_pull = 120

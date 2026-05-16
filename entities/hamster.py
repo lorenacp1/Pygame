@@ -1,25 +1,23 @@
 import pygame
 
+
 class Hamster:
     def __init__(self, x, y, hamster_type="normal"):
-        
-       self.hamster_type = hamster_type
 
-       if hamster_type == "normal":
-        self.image = pygame.image.load('assets/hamster_normal.png').convert_alpha()
+        self.hamster_type = hamster_type
 
-       elif hamster_type == "heavy":
-        self.image = pygame.image.load("assets/hamster_heavy.png").convert_alpha()
-        
-       elif hamster_type == "wheel":
-        self.image = pygame.image.load("assets/hamster_wheel.png").convert_alpha()
-        
-        
-        self.image = pygame.transform.scale(self.image, (80, 80))
+        if hamster_type == "normal":
+            self.image = pygame.image.load("assets/hamster_normal.png").convert_alpha()
+
+        elif hamster_type == "heavy":
+            self.image = pygame.image.load("assets/hamster_heavy.png").convert_alpha()
+
+        elif hamster_type == "wheel":
+            self.image = pygame.image.load("assets/hamster_wheel.png").convert_alpha()
+
+        self.image = pygame.transform.smoothscale(self.image, (140, 140))
 
         self.rect = self.image.get_rect(topleft=(x, y))
-
-        
 
         self.vel_x = 0
         self.vel_y = 0
@@ -28,10 +26,10 @@ class Hamster:
         self.dragging = False
         self.launched = False
         self.ready = False
-        self.intro_falling = True 
-    
+        self.intro_falling = True
+
     def reset_to_intro(self, x, y):
-        self.rect.center = (x,y)
+        self.rect.center = (x, y)
         self.vel_x = 0
         self.vel_y = 0
         self.dragging = False
@@ -39,8 +37,8 @@ class Hamster:
         self.ready = False
         self.intro_falling = True
 
-    def prepare_for_game(self, x, y): 
-        self.rect.center = (x,y)
+    def prepare_for_game(self, x, y):
+        self.rect.center = (x, y)
         self.vel_x = 0
         self.vel_y = 0
         self.dragging = False
@@ -60,12 +58,12 @@ class Hamster:
 
         return False
 
-    def update_game(self, ground_y): 
+    def update_game(self, ground_y):
         if self.dragging:
-            return 
-        
-        if self.launched: 
-            self.vel_y += self.gravity 
+            return
+
+        if self.launched:
+            self.vel_y += self.gravity
             self.rect.x += int(self.vel_x)
             self.rect.y += int(self.vel_y)
 

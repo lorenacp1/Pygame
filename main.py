@@ -138,9 +138,10 @@ while running:
 
             dx = max(-max_pull, min(max_pull, mouse_x - anchor_x))
             dy = max(-max_pull, min(max_pull, mouse_y - anchor_y))
+            
+            hamster.rect.center = (anchor_x + dx, anchor_y + dy)
 
-            hamster.rect.x = anchor_x + dx
-            hamster.rect.y = anchor_y + dy
+            
 
         hamster.update_game(GROUND_Y)
 

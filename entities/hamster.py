@@ -15,9 +15,10 @@ class Hamster:
         elif hamster_type == "wheel":
             self.image = pygame.image.load("assets/hamster_wheel.png").convert_alpha()
 
-        self.image = pygame.transform.smoothscale(self.image, (140, 140))
+        self.image = pygame.transform.smoothscale(self.image, (200, 200))
 
-        self.rect = self.image.get_rect(topleft=(x, y))
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
 
         self.vel_x = 0
         self.vel_y = 0

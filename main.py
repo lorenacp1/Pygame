@@ -18,8 +18,8 @@ pygame.display.set_caption("Hamster Heist")
 clock = pygame.time.Clock()
 
 GROUND_Y = 600
-INTRO_SPAWN = (WIDTH // 2, -30)
-SLING_POS = (180, 520)
+INTRO_SPAWN = (WIDTH // 2, 100)
+SLING_POS = (300, 500)
 
 def create_boxes():
     return [
@@ -85,7 +85,8 @@ while running:
         
         if scene == "game":
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if hamster.ready and hamster.rect.collidepoint(event.pos):
+                if hamster.ready:
+                    print('CLICOU')
                     hamster.dragging = True
     
             if event.type == pygame.MOUSEBUTTONUP:
@@ -138,7 +139,8 @@ while running:
             dx = max(-max_pull, min(max_pull, mouse_x - anchor_x))
             dy = max(-max_pull, min(max_pull, mouse_y - anchor_y))
 
-            hamster.rect.center = (anchor_x + dx, anchor_y + dy)
+            hamster.rect.x = anchor_x + dx
+            hamster.rect.y = anchor_y + dy
 
         hamster.update_game(GROUND_Y)
 

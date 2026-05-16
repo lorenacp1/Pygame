@@ -1,12 +1,25 @@
 import pygame
 
 class Hamster:
-    def __init__(self, x, y):
+    def __init__(self, x, y, hamster_type="normal"):
         
-        self.image = pygame.Surface((50, 50), pygame.SRCALPHA)
-        pygame.draw.circle(self.image, (180, 120, 80), (25, 25), 25)
+       self.hamster_type = hamster_type
+
+       if hamster_type == "normal":
+        self.image = pygame.image.load('assets/hamster_normal.png').convert_alpha()
+
+       elif hamster_type == "heavy":
+        self.image = pygame.image.load("assets/hamster_heavy.png").convert_alpha()
+        
+       elif hamster_type == "wheel":
+        self.image = pygame.image.load("assets/hamster_wheel.png").convert_alpha()
+        
+        
+        self.image = pygame.transform.scale(self.image, (80, 80))
 
         self.rect = self.image.get_rect(topleft=(x, y))
+
+        
 
         self.vel_x = 0
         self.vel_y = 0

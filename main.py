@@ -9,6 +9,10 @@ HEIGHT = 700
 menu_img = pygame.image.load("menu.png")
 menu_img = pygame.transform.smoothscale(menu_img, (WIDTH, HEIGHT))
 
+select_hamster_img = pygame.image.load("select_hamster.png")
+select_hamster_img = pygame.transform.smoothscale(select_hamster_img,(WIDTH, HEIGHT))
+
+
 level_select_img = pygame.image.load("levels.png")
 level_select_img = pygame.transform.smoothscale(level_select_img, (WIDTH, HEIGHT))
 

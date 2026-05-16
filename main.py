@@ -48,7 +48,6 @@ selected_level = 1
 score = 0
 
 scene = "menu"
-scene = "select_hamster"
 selected_hamster = "normal"
 running = True
 
@@ -85,7 +84,7 @@ while running:
                 if normal_button.collidepoint(event.pos):
                     selected_hamster = 'normal'
                     hamster = Hamster(*INTRO_SPAWN,hamster_type='normal')
-                    scene = 'game'
+                    scene = "level_select"
                 
                 elif heavy_button.collidepoint(event.pos):
                     selected_hamster = 'heavy'

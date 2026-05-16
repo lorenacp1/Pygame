@@ -127,7 +127,7 @@ while running:
         pygame.draw.rect(screen, (120, 120, 120), (0, GROUND_Y, WIDTH, 100))
         intro_done = hamster.update_intro(GROUND_Y)
         if intro_done:
-            scene = "game"
+            scene = "select_hamster"
             hamster.prepare_for_game(*SLING_POS)
 
         hamster.draw(screen)

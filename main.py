@@ -144,6 +144,12 @@ while running:
             
 
         hamster.update_game(GROUND_Y)
+        
+        if hamster.launched:
+            if hamster.rect.x > WIDTH + 200 or hamster.rect.x < -200 or hamster.rect.y > HEIGHT + 200:
+                hamster.reset_to_intro(*INTRO_SPAWN)
+                boxes = create_boxes()
+                scene = "intro"
 
         for box in boxes[:]:
             if hamster.rect.colliderect(box):

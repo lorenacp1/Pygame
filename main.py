@@ -116,6 +116,18 @@ while running:
             screen.blit(normal_text, (240, 500))
             screen.blit(heavy_text, (570, 500))
             screen.blit(wheel_text, (890, 500))
+            
+            pygame.draw.rect(screen, (255,255,255), normal_button)
+
+            pygame.draw.rect(screen, (255,255,255), heavy_button)
+
+            pygame.draw.rect(screen, (255,255,255), wheel_button)
+
+            screen.blit(normal_preview, (200, 270))
+
+            screen.blit(heavy_preview, (520, 270))
+
+            screen.blit(wheel_preview, (840, 270))
 
         if event.type == pygame.QUIT:
             running = False
